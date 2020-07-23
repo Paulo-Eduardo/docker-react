@@ -1,5 +1,5 @@
-sudo: require
 language: generic
+sudo: require
 
 services:
   - docker
@@ -8,7 +8,7 @@ before_install:
   - docker build -t pauloes/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true pauloes/docker-react yarn test -- --coverage
+  - docker run -e CI=true pauloes/docker-react npm run test -- --coverage
 
 deploy:
   provider: elasticbeanstalk
